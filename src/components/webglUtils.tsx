@@ -1,5 +1,6 @@
 export const webglUtils = () => {
     return {
+        // memo 항상 CSS를 사용해 원하는 캔버스 크기를 설정해야 합니다.
         resizeCanvasToDisplaySize: (canvas: any) => {
             // 브라우저가 캔버스를 표시하고 있는 크기를 CSS 픽셀 단위로 얻어옵니다.
             const displayWidth = canvas.clientWidth;
@@ -16,6 +17,9 @@ export const webglUtils = () => {
             }
 
             return needResize;
+        },
+        randomInt: (range: number) => {
+            return Math.floor(Math.random() * range);
         }
     }
 }
