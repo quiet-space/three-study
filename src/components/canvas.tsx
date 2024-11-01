@@ -86,13 +86,14 @@ export default function Canvas() {
             // 프래그먼트 셰이더는 기본 정밀도를 가지고 있지 않으므로 선언을 해야합니다.
             // highp는 기본값으로 적당합니다. "높은 정밀도(high precision)"를 의미합니다.
             precision highp float;
+              uniform vec4 u_color;
              
             // 프래그먼트 셰이더는 출력값을 선언 해야합니다.
             out vec4 outColor;
              
             void main() {
               // 붉은-보라색 상수로 출력값을 설정합니다.
-                  outColor = vec4(1, 0, 0.5, 1);
+                    outColor = u_color;
             }`;
 
         // memo 위 GLSL 소스를 컴파일해서 만든 함수
@@ -196,14 +197,14 @@ export default function Canvas() {
         gl.drawArrays(gl.TRIANGLES, 0, 6);
 
         // ---------- 사각형 그리기 ---------
-        // const colorLocation = gl.getUniformLocation(program, "u_color");
-        //
-        // const {randomInt} = webglUtils()
-        // for (let ii: number = 0; ii < 50; ++ii) {
-        //     setRectangle(gl, randomInt(300), randomInt(300), randomInt(300), randomInt(300));
-        //     gl.uniform4f(colorLocation, Math.random(), Math.random(), Math.random(), 1);
-        //     gl.drawArrays(gl.TRIANGLES, 0, 6); // primitiveType, offset, count
-        // }
+        const colorLocation = gl.getUniformLocation(program, "u_color");
+
+        const {randomInt} = webglUtils()
+        for (let ii: number = 0; ii < 50; ++ii) {
+            setRectangle(gl, randomInt(300), randomInt(300), randomInt(300), randomInt(300));
+            gl.uniform4f(colorLocation, Math.random(), Math.random(), Math.random(), 1);
+            gl.drawArrays(gl.TRIANGLES, 0, 6); // primitiveType, offset, count
+        }
 
 
     }, [])
