@@ -1,6 +1,6 @@
 export default (
     () => {
-        const st: {[key: string]: any} = {};
+        const st: { [key: string]: any } = {};
 
         return {
             set: (key: string, object: any): void => {
@@ -15,4 +15,4 @@ export default (
 
         }
     }
-);
+)();
