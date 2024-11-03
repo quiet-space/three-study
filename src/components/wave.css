@@ -1,0 +1,24 @@
+.word-container {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    min-width: 80vw;
+    min-height: 40px;
+
+    input {
+        padding: 0;
+        border: 0 solid transparent;
+        border-radius: 3px;
+    }
+
+    button {
+        margin-left: 1vw;
+        border: 0 solid transparent;
+        border-radius: 3px;
+        cursor: pointer;
+
+        background: white;
+        color: black;
+        font-weight: bold;
+        font-size: large;
+    }
+}
